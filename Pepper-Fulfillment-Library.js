@@ -565,11 +565,8 @@
             // For Custom Payload message types:
             
             // Make sure we're not mixing Custom Payload responses with Google Assistant responses
-            if (googleAssistant.length === 0)
-                payload.push(x);
-            else
-                throw "Error: You cannot combine a " + messageType + " object with a " + 
-            arguments[googleAssistant[0]] + " object.";                    
+
+               
             this.payload = x;
             console.log(JSON.stringify(payload));
             
