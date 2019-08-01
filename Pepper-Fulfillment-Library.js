@@ -551,14 +551,6 @@
          this.responseArray = [];
          this.arrayObj = {};
          this.payload = {};
-
-         console.log("------");
-         console.log(typeof arguments);
-         console.log("-----");
-         for(var i = 0; i < arguments.length;i++){
-            console.log(typeof arguments[i]);   
-         }
-         console.log("------");
          let textResponses = [];
          let validResponses = ["BackgroundImage","BasicCard","BasicText","Carousel","CarouselNoTitles","FullScreenImage","Icons","Style","Text","TextBubbles","TriggerIntent","Video","Website"];
          for (let x = 0; x < arguments.length; x++) {
@@ -567,6 +559,10 @@
                 arguments[x] = new BasicText(arguments[x]);
             // Validate that the response objects are valid
             let messageType = arguments[x].constructor.name.toString();
+            console.log("------");
+            console.log(messageType);
+            console.log("------");
+            console.log(arguments[x].type);
             if ( !validResponses.includes(messageType) ) {
                 throw "Error 1: " + messageType + " is not a valid Pepper response type.";
             }
