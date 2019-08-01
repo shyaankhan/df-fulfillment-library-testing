@@ -551,8 +551,12 @@
          this.responseArray = [];
          this.arrayObj = {};
          this.payload = {};
+
          console.log("------");
-         console.log(arguments);
+         for(var i = 0; i < arguments.length;i++){
+            console.log(arguments[i]);   
+         }
+         console.log("------");
          let textResponses = [];
          let validResponses = ["BackgroundImage","BasicCard","BasicText","Carousel","CarouselNoTitles","FullScreenImage","Icons","Style","Text","TextBubbles","TriggerIntent","Video","Website"];
          for (let x = 0; x < arguments.length; x++) {
