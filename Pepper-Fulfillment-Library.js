@@ -548,11 +548,11 @@
  */
  class PepperResponse {
      constructor(){
-         console.log("-----");
-         console.log(JSON.stringify(this));
-         this.payload = [];
-         let googleAssistant = [];
-         //let payload = [];
+         this.responseArray = [];
+         this.arrayObj = {};
+         this.payload = {};
+         console.log("------");
+         console.log(arguments);
          let textResponses = [];
          let validResponses = ["BackgroundImage","BasicCard","BasicText","Carousel","CarouselNoTitles","FullScreenImage","Icons","Style","Text","TextBubbles","TriggerIntent","Video","Website"];
          for (let x = 0; x < arguments.length; x++) {
