@@ -607,7 +607,7 @@
       // If speech or displayText is defined, use it to respond (if one isn't defined use the other's value)
       //responseJson.speech = responseToUser.speech || responseToUser.displayText || "";
       //responseJson.displayText = responseToUser.displayText || responseToUser.speech;
-      responseJson.payload = responseToUser.payload;
+      responseJson = responseToUser.payload;
       // Optional: add contexts (https://dialogflow.com/docs/contexts)
       if (responseToUser.contextOut)
           responseJson.contextOut = responseToUser.contextOut;
