@@ -559,42 +559,29 @@
                 arguments[x] = new BasicText(arguments[x]);
             // Validate that the response objects are valid
             let messageType = arguments[x].constructor.name.toString();
-            console.log("------");
-            console.log(messageType);
-            console.log("------");
-            console.log(arguments[x].type);
             if ( !validResponses.includes(messageType) ) {
-                throw "Error 1: " + messageType + " is not a valid Pepper response type.";
+                throw "Error: " + messageType + " is not a valid Pepper response type.";
             }
-            switch (arguments[x].type) {
-                // For Google Assistant message types:
-                case "list_card":
-                case "basic_card":
-                if (payload.length === 0)
-                    googleAssistant.push(x);
-                else
-                    throw "Error: You cannot combine a " + messageType +
-                " object with a " + arguments[payload[0]] + " object.";
-                break;
-                // For Custom Payload message types:
-                case 4:
-                    // Make sure we're not mixing Custom Payload responses with Google Assistant responses
-                    if (googleAssistant.length === 0)
-                        payload.push(x);
-                    else
-                        throw "Error: You cannot combine a " + messageType + " object with a " + 
-                    arguments[googleAssistant[0]] + " object.";                    
-                    payload.push(x);
-                    break;
+            // For Custom Payload message types:
+            
+            // Make sure we're not mixing Custom Payload responses with Google Assistant responses
+            if (googleAssistant.length === 0)
+                payload.push(x);
+            else
+                throw "Error: You cannot combine a " + messageType + " object with a " + 
+            arguments[googleAssistant[0]] + " object.";                    
+            this.payload = x;
+            console.log(JSON.stringify(payload));
+            
+            /*
                 // For simple text object types:
-                case 0:
                 textResponses.push(x);
                 break;
                 default:
                 throw "Error 2: " + messageType + " is not a valid Pepper response object.";
-            }
-            // If it made it this far, it should be a valid chain of messages
-            this.payload.push(arguments[x]);
+                // If it made it this far, it should be a valid chain of messages
+                this.payload.push(arguments[x]);
+            */
         }
     }
     setContext(contextObj){
