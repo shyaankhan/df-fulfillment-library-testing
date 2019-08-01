@@ -553,8 +553,10 @@
          this.payload = {};
 
          console.log("------");
+         console.log(typeof arguments);
+         console.log("-----");
          for(var i = 0; i < arguments.length;i++){
-            console.log(arguments[i]);   
+            console.log(typeof arguments[i]);   
          }
          console.log("------");
          let textResponses = [];
