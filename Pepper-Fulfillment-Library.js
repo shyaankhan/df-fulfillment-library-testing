@@ -588,7 +588,7 @@
                 textResponses.push(x);
                 break;
                 default:
-                throw "Error: " + messageType + " is not a valid Pepper response object.";
+                throw "Error 2: " + messageType + " is not a valid Pepper response object.";
             }
             // If it made it this far, it should be a valid chain of messages
             this.payload.push(arguments[x]);
