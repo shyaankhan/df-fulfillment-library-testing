@@ -567,9 +567,10 @@
             // Make sure we're not mixing Custom Payload responses with Google Assistant responses
 
 
-            this.payload = x;
+            this.payload = arguments[x].messageType;
+            this.responseArray = [{this.payload}];
             console.log("------");
-            console.log(JSON.stringify(this.payload));
+            console.log(JSON.stringify(this.responseArray));
             
             /*
                 // For simple text object types:
