@@ -567,7 +567,7 @@
             // Make sure we're not mixing Custom Payload responses with Google Assistant responses
 
 
-            this.payload = arguments[x][arguments[x].constructor.name];
+            this.payload = arguments[x];
             this.responseArray.push(this.payload);
             console.log("------");
             console.log(JSON.stringify(this.payload));
