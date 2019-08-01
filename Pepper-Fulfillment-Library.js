@@ -568,7 +568,7 @@
 
 
             this.payload = arguments[x].messageType;
-            this.responseArray = [{this.payload}];
+            this.responseArray.push(this.payload);
             console.log("------");
             console.log(JSON.stringify(this.responseArray));
             
