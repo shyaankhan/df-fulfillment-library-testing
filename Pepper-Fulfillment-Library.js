@@ -548,6 +548,8 @@
  */
  class PepperResponse {
      constructor(){
+         console.log("-----");
+         console.log(this);
          this.payload = [];
          let googleAssistant = [];
          //let payload = [];
@@ -559,7 +561,6 @@
                 arguments[x] = new BasicText(arguments[x]);
             // Validate that the response objects are valid
             let messageType = arguments[x].constructor.name.toString();
-            console.log(messageType);
             if ( !validResponses.includes(messageType) ) {
                 throw "Error 1: " + messageType + " is not a valid Pepper response type.";
             }
