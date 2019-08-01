@@ -549,7 +549,7 @@
  class PepperResponse {
      constructor(){
          console.log("-----");
-         console.log(this);
+         console.log(JSON.stringify(this));
          this.payload = [];
          let googleAssistant = [];
          //let payload = [];
