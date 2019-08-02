@@ -561,7 +561,7 @@
                 console.log("Argument[x]:"+ arguments[x]);
                 arguments[x] = new BasicText(arguments[x]);
             }
-            console.log("Agument AFTER conversion:" + arguments[x]);
+            console.log("Agument AFTER conversion:" + JSON.stringify(arguments[x]));
             // Validate that the response objects are valid
             let messageType = arguments[x].constructor.name.toString();
             if ( !validResponses.includes(messageType) ) {
