@@ -556,7 +556,7 @@
          for (let x = 0; x < arguments.length; x++) {
             // If simple text is passed to PepperResponse, convert it into a BasicText object before processing;
             if (typeof arguments[x] == "string")
-                arguments[x] = new BasicText(arguments[x]);
+                //arguments[x] = new BasicText(arguments[x]);
             // Validate that the response objects are valid
             let messageType = arguments[x].constructor.name.toString();
             if ( !validResponses.includes(messageType) ) {
