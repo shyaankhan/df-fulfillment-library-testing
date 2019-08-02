@@ -16,17 +16,16 @@
      }
      setStyle(styleConfig) {
         // Only allow the addition of styling to Custom Payload types
-        if (this.type == 4) {
-            let validStyles = [    'backgroundColor', 'backgroundImage','textColor',
-            'font','bubbleColor','bubbleTextColor','bubbleFont'];
-            let styleConfigKeys = Object.keys(styleConfig);
-            for (let x = 0; x < styleConfigKeys.length; x++) {
-                let styleKey = styleConfigKeys[x];
-                if (validStyles.indexOf(styleKey) == -1) {
-                    throw styleKey + " is not a valid style key (" + validStyles.join(", ") + ").";
-                } else {``
-                    this.payload[styleKey] = styleConfig[styleKey];
-                }
+        let validStyles = [    'backgroundColor', 'backgroundImage','textColor',
+        'font','bubbleColor','bubbleTextColor','bubbleFont'];
+        let styleConfigKeys = Object.keys(styleConfig);
+        
+        for (let x = 0; x < styleConfigKeys.length; x++) {
+            let styleKey = styleConfigKeys[x];
+            if (validStyles.indexOf(styleKey) == -1) {
+                throw styleKey + " is not a valid style key (" + validStyles.join(", ") + ").";
+            } else {
+                this.payload[styleKey] = styleConfig[styleKey];
             }
         } else if (this.type === 0) {
             this.payload = {
@@ -117,7 +116,7 @@
  class BasicText extends BasicResponse {
      constructor(title) {
          super();
-         this.text = { text: title };
+         this.text = {text:[title]};
      }
      setStyle(styleConfig) {
          super.setStyle(styleConfig);
