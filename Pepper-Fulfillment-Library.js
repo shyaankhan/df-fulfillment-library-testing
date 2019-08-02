@@ -547,8 +547,6 @@
  */
  class PepperResponse {
      constructor(){
-         this.responseArray = [];
-         this.arrayObj = {};
          this.payload = {};
          let textResponses = [];
          let validResponses = ["BackgroundImage","BasicCard","BasicText","Carousel","CarouselNoTitles","FullScreenImage","Icons","Style","Text","TextBubbles","TriggerIntent","Video","Website"];
@@ -572,7 +570,6 @@
 
 
             this.payload = arguments[x];
-            this.responseArray.push(this.payload);
             console.log("this.payload--"+JSON.stringify(this.payload));
             console.log("---this---");
             console.log(JSON.stringify(this));
