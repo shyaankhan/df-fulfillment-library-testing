@@ -27,7 +27,7 @@
             } else {
                 this.payload[styleKey] = styleConfig[styleKey];
             }
-        } else if (this.type === 0) {
+        }/* else if (this.type === 0) {
             this.payload = {
                 speak: this.speech
             }
@@ -38,7 +38,7 @@
             // For Google Assistant types (and any other objects), do not allow the addition of styling
             throw "Unfortunately, you are not able to add style to this type of response (" + this.constructor.name +
             "). Please add the styling to a previous response or choose a different response type.";
-        }
+        }*/
     }
 }
 
