@@ -573,8 +573,9 @@
 
             this.payload = arguments[x];
             this.responseArray.push(this.payload);
-            console.log("------");
-            console.log(JSON.stringify(this.payload));
+            console.log("this.payload--"+JSON.stringify(this.payload));
+            console.log("---this---");
+            console.log(JSON.stringify(this));
             
             /*
                 // For simple text object types:
