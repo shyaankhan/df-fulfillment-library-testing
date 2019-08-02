@@ -556,7 +556,8 @@
          for (let x = 0; x < arguments.length; x++) {
             // If simple text is passed to PepperResponse, convert it into a BasicText object before processing;
             console.log("Type of Argument:"+typeof arguments[x]);
-            if (typeof arguments[x] == "String"){
+            console.log("CONTENT of Argument:"+ arguments[x]);
+            if (typeof arguments[x] == "string"){
                 console.log("Argument[x]:"+ arguments[x]);
                 arguments[x] = new BasicText(arguments[x]);
             }
