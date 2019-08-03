@@ -83,13 +83,12 @@
  *  responseToPepper.send(response); // <-- send() takes the webhook response object as a parameter      
  */
  class BasicCard extends BasicResponse {
-     constructor(title, url) {
+     constructor(title, speech, url) {
          super();
-         this.type = "basic_card";
-         this.platform = "google";
-         this.title = title;
-         this.image = { "url" : url };
-         this.buttons = [];
+         this.title = "";
+         this.basicCard.speak = speech;
+         this.basicCard.contentURL = url;
+         this.basicCard.text = title;
      }
      setStyle(styleConfig) {
          super.setStyle(styleConfig);
