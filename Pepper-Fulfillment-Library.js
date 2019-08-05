@@ -245,8 +245,9 @@
  class Carousel extends BasicResponse {
      constructor(title, carouselImagesArray) {
          super();
-         this.title = title;
-         this.imageCards = carouselImagesArray.map(carouselImage => {
+         this.payload = {};
+         this.payload.title = title;
+         this.payload.imageCards = carouselImagesArray.map(carouselImage => {
              if (carouselImage instanceof CarouselImageUncaptioned || carouselImage instanceof CarouselImageCaptioned) {
                  return carouselImage;
              } else {
