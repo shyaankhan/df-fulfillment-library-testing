@@ -85,6 +85,7 @@
  class BasicCard extends BasicResponse {
      constructor(title, speech, url) {
          super();
+         this.basicCard = {};
          this.basicCard.speak = speech;
          this.basicCard.contentURL = url;
          this.basicCard.text = title;
