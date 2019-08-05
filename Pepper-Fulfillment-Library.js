@@ -146,7 +146,7 @@
  class CarouselImageUncaptioned {
      constructor(speech, url, value) {
          this.speak = speech;
-         this.contentUrl = url;
+         this.contentURL = url;
          this.value = value;
      }
  }
@@ -177,7 +177,7 @@
  class CarouselImageCaptioned {
      constructor(speech, url, caption, value) {
          this.speak = speech;
-         this.contentUrl = url;
+         this.contentURL = url;
          this.value = value;
          this.text = caption;
      }  
