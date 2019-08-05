@@ -16,7 +16,7 @@
      }
      setStyle(styleConfig) {
         // Only allow the addition of styling to Custom Payload types
-        let validStyles = [    'backgroundColor', 'backgroundImage','textColor',
+        let validStyles = ['backgroundColor', 'backgroundImage','textColor',
         'font','bubbleColor','bubbleTextColor','bubbleFont'];
         let styleConfigKeys = Object.keys(styleConfig);
         
@@ -114,7 +114,7 @@
  class BasicText extends BasicResponse {
      constructor(title) {
          super();
-         this.paylod = { text : title }
+         this.payload = { text : title }
      }
      setStyle(styleConfig) {
          super.setStyle(styleConfig);
@@ -122,11 +122,11 @@
  }
 
 /**
- * CarouselImageUncaptioned(speech, url, value) - must be used in conjunction with the Carousel class
+ * CarouselImageUncaptioned(speak, contentURL, value) - must be used in conjunction with the Carousel class
  * to create a carousel; the relationship is that a Carousel is composed of CarouselImage objects.
  * 
- * @param {string} speech - what is displayed under this Carousel image
- * @param {string} url - the image to be created as an item within a Carousel
+ * @param {string} speak - what is displayed under this Carousel image
+ * @param {string} contentURL - the image to be created as an item within a Carousel
  * @param {string} value - the utterance that will be triggered upon selecting
  *          this carousel image
  * @return {object} The correctly formatted JSON to pass in an array to a Carousel object
@@ -152,12 +152,12 @@
  }
 
  /**
- * CarouselImageCaptioned(speech, url, caption, value) - must be used in conjunction with the Carousel class
+ * CarouselImageCaptioned(speak, contentURL, caption, value) - must be used in conjunction with the Carousel class
  * to create a carousel; the relationship is that a Carousel is composed of CarouselImage objects.
  * 
- * @param {string} speech - what is displayed under this Carousel image
- * @param {string} url - the image to be created as an item within a Carousel
- * @param {string} caption - the utterance that will be triggered upon selecting
+ * @param {string} speak - what is displayed under this Carousel image
+ * @param {string} contentURL - the image to be created as an item within a Carousel
+ * @param {string} caption - the caption under the image
  * @param {string} value - the utterance that will be triggered upon selecting
  *          this carousel image
  * @return {object} The correctly formatted JSON to pass in an array to a Carousel object
