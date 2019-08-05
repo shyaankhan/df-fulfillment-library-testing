@@ -638,5 +638,5 @@ function randomlyChoose(array){
 }
 
 
-module.exports = { BackgroundImage, BasicCard, BasicText, CarouselImage, Carousel, CarouselImageNoTitle, CarouselNoTitles, FullScreenImage, 
+module.exports = { BackgroundImage, BasicCard, BasicText, Carousel, CarouselImageUncaptioned, CarouselImageCaptioned, FullScreenImage, 
     Icon, Icons, Style, TextBubble, TextBubbles, TriggerIntent, Video, Website, PepperResponse, toTitleCase, randomlyChoose };
