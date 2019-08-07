@@ -116,6 +116,7 @@
  class BasicText extends BasicResponse {
      constructor(title) {
          super();
+         this.payload = {}
          this.payload.basicText = { text : title }
      }
      setStyle(styleConfig) {
