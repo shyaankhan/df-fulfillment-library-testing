@@ -551,28 +551,19 @@
  */
  class PepperResponse {
      constructor(){
+         this.fulfillmentMessages = [];
          this.payload = {};
-         let textResponses = [];
          let validResponses = ["BackgroundImage","BasicCard","BasicText","Carousel","CarouselNoTitles","FullScreenImage","Icons","Style","Text","TextBubbles","TriggerIntent","Video","Website"];
          for (let x = 0; x < arguments.length; x++) {
             // If simple text is passed to PepperResponse, convert it into a BasicText object before processing;
-            console.log("Type of Argument:"+typeof arguments[x]);
-            console.log("CONTENT of Argument:"+ arguments[x]);
             if (typeof arguments[x] == "string"){
-                console.log("Argument[x]:"+ arguments[x]);
                 arguments[x] = new BasicText(arguments[x]);
             }
-            console.log("Agument AFTER conversion:" + JSON.stringify(arguments[x]));
             // Validate that the response objects are valid
             let messageType = arguments[x].constructor.name.toString();
             if ( !validResponses.includes(messageType) ) {
                 throw "Error: " + messageType + " is not a valid Pepper response type.";
             }
-            // For Custom Payload message types:
-            
-            // Make sure we're not mixing Custom Payload responses with Google Assistant responses
-
-
             this.payload = arguments[x];
             console.log("this.payload--"+JSON.stringify(this.payload));
             console.log("---this---");
@@ -585,8 +576,8 @@
                 default:
                 throw "Error 2: " + messageType + " is not a valid Pepper response object.";
                 // If it made it this far, it should be a valid chain of messages
-                this.payload.push(arguments[x]);
             */
+            this.fulfillmentMessages.push(arguments[x]);
         }
     }
     setContext(contextObj){
@@ -607,7 +598,7 @@
         }
     }
     send(webhookResponse) {
-        let responseToUser = this;
+      let responseToUser = this;
       // If the response to the user includes rich responses or contexts send them to Dialogflow
       let responseJson = {};
       // If speech or displayText is defined, use it to respond (if one isn't defined use the other's value)
