@@ -552,7 +552,6 @@
  class PepperResponse {
      constructor(){
          this.fulfillmentMessages = [];
-         this.payload = {};
          let validResponses = ["BackgroundImage","BasicCard","BasicText","Carousel","CarouselNoTitles","FullScreenImage","Icons","Style","Text","TextBubbles","TriggerIntent","Video","Website"];
          for (let x = 0; x < arguments.length; x++) {
             // If simple text is passed to PepperResponse, convert it into a BasicText object before processing;
@@ -564,8 +563,7 @@
             if ( !validResponses.includes(messageType) ) {
                 throw "Error: " + messageType + " is not a valid Pepper response type.";
             }
-            this.payload = arguments[x];
-            console.log("this.payload--"+JSON.stringify(this.payload));
+            //this.payload = arguments[x];
             console.log("---this---");
             console.log(JSON.stringify(this));
             
@@ -604,7 +602,7 @@
       // If speech or displayText is defined, use it to respond (if one isn't defined use the other's value)
       //responseJson.speech = responseToUser.speech || responseToUser.displayText || "";
       //responseJson.displayText = responseToUser.displayText || responseToUser.speech;
-      responseJson = responseToUser.payload;
+      responseJson = responseToUser.fulfillmentMessages;
       // Optional: add contexts (https://dialogflow.com/docs/contexts)
       if (responseToUser.contextOut)
           responseJson.contextOut = responseToUser.contextOut;
