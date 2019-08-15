@@ -27,18 +27,7 @@
             } else {
                 this.payload[styleKey] = styleConfig[styleKey];
             }
-        }/* else if (this.type === 0) {
-            this.payload = {
-                speak: this.speech
-            }
-            this.type = 4;
-            this.speech = "";
-            this.setStyle(styleConfig);
-        } else {
-            // For Google Assistant types (and any other objects), do not allow the addition of styling
-            throw "Unfortunately, you are not able to add style to this type of response (" + this.constructor.name +
-            "). Please add the styling to a previous response or choose a different response type.";
-        }*/
+        }
     }
 }
 
@@ -186,51 +175,9 @@
      }  
  }
 
-/**
- * Carousel(title, carouselImageArray) - creates a carousel of images as a response to an intent; 
- * must be used in conjunction with the CarouselImage class to create a carousel; the relationship 
- * is that a Carousel is composed of CarouselImage objects.
- * 
- * @param {string} title - what is to be spoken/displayed as title
- * @param {object} carouselImageArray - an array of CarouselImage objects
- * @return {object} The correctly formatted JSON object to pass to the PepperResponse object
- * 
- * @example
- *  let carouselDog = new CarouselImage("Dog","http://animal-images/dog.jpg", "Dog image");
- *  let carouselCat = new CarouselImage("Cat","http://animal-images/cat.jpg", "Cat image");
- *  let carouselBird = new CarouselImage("Bird","http://animal-images/bird.jpg", "Bird image");
- *  let carouselArray = [carouselDog, carouselCat, carouselArray];
- *  let carousel = new Carousel("Look at this beautiful carousel", carouselArray);
- *  let responseToPepper = new PepperResponse(carousel);
- *  responseToPepper.send(response); // <-- send() takes the webhook response object as a parameter      
- */
- // class Carousel extends BasicResponse {
- //     constructor(title, carouselImagesArray) {
- //         super();
- //         this.type = "list_card";
- //         this.platform = "google";
- //         this.title = title;
- //         this.items = carouselImagesArray.map(carouselImage => {
- //             console.log("Map --> carouselImage: ", carouselImage);
- //             if (carouselImage instanceof CarouselImage) {
- //                 return { 
- //                     "optionInfo": {
- //                         "key": carouselImage.triggerUtterance,
- //                         "synonyms": []  },
- //                         "title" : carouselImage.title,
- //                         "image" : { "url" : carouselImage.url } };
- //                     } else {
- //                         throw "A Carousel object must take an array of CarouselImage objects";
- //                     }
- //                 });
- //     }
- //     setStyle(styleConfig) {
- //         super.setStyle(styleConfig);
- //     }
- // }
 
 /**
- * CarouselNoTitles(title, carouselImageArray):
+ * Carousel(title, carouselImageArray):
  * 
  * @param {string} title - what is to be spoken/displayed as title
  * @param {object} carouselImageArray - an array of CarouselImageNoTitle objects
@@ -241,7 +188,7 @@
  *  let carouselCat = new CarouselImageNoTitle("Cat","http://animal-images/cat.jpg", "Cat image");
  *  let carouselBird = new CarouselImageNoTitle("Bird","http://animal-images/bird.jpg", "Bird image");
  *  let carouselArray = [carouselDog, carouselCat, carouselArray];
- *  let carousel = new CarouselNoTitles("Look at this beautiful carousel", carouselArray);
+ *  let carousel = new Carousel("Look at this beautiful carousel", carouselArray);
  *  let responseToPepper = new PepperResponse(carousel);
  *  responseToPepper.send(response); // <-- send() takes the webhook response object as a parameter  
  */
