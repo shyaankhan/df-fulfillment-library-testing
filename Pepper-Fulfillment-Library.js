@@ -72,7 +72,7 @@
  *  responseToPepper.send(response); // <-- send() takes the webhook response object as a parameter      
  */
  class BasicCard extends BasicResponse {
-    constructor(title, speech, url) {
+    constructor(title, url) {
         super();
         this.payload = { 
             basicCard : {
