@@ -229,7 +229,7 @@ class CarouselNoTitles extends BasicResponse {
          super();
          this.payload = {};
          this.payload.title = title;
-         this.payload.imageCards = carouselImagesArray.map(carouselImage => {
+         this.payload.imageCards = carouselImagesNoTitlesArray.map(carouselImage => {
              if (carouselImage instanceof CarouselImageNoTitle) {
                  return carouselImage;
              } else {
