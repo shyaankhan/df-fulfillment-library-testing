@@ -112,7 +112,7 @@
  }
 
  /**
- * CarouselImage(speech, url, value) - must be used in conjunction with the Carousel class
+ * CarouselImage(title, url, value) - must be used in conjunction with the Carousel class
  * to create a carousel; the relationship is that a Carousel is composed of CarouselImage objects.
  * 
  * @param {string} title - what is displayed under this Carousel image
@@ -134,11 +134,10 @@
  * Note: Cannot be used standalone with PepperResponse!
  */
 class CarouselImage {
-    constructor(speech, url, text, value) {
-         this.speak = speech;
+    constructor(text, url, value) {
+         this.text = text;
          this.contentURL = url;
          this.value = value;
-         this.text = text
      }
 }
 
