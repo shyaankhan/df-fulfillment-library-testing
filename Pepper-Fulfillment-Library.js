@@ -134,10 +134,11 @@
  * Note: Cannot be used standalone with PepperResponse!
  */
 class CarouselImage {
-    constructor(speech, url, value) {
+    constructor(speech, url, text, value) {
          this.speak = speech;
          this.contentURL = url;
          this.value = value;
+         this.text = text
      }
 }
 
