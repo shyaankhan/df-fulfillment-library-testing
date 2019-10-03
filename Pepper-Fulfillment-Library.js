@@ -542,18 +542,6 @@ class CarouselNoTitles extends BasicResponse {
             if ( !validResponses.includes(messageType) ) {
                 throw "Error: " + messageType + " is not a valid Pepper response type.";
             }
-            //this.payload = arguments[x];
-            console.log("---this---");
-            console.log(JSON.stringify(this));
-            
-            /*
-                // For simple text object types:
-                textResponses.push(x);
-                break;
-                default:
-                throw "Error 2: " + messageType + " is not a valid Pepper response object.";
-                // If it made it this far, it should be a valid chain of messages
-            */
             this.fulfillmentMessages.push(arguments[x]);
         }
     }
@@ -569,7 +557,7 @@ class CarouselNoTitles extends BasicResponse {
             }
             this.contextOut.push({ 
                 name : contextObj.name, 
-                lifespan : contextObj.lifespan || 5,
+                lifespanCount : contextObj.lifespan || 5,
                 parameters : contextObj.parameters
             });
         }
@@ -584,7 +572,7 @@ class CarouselNoTitles extends BasicResponse {
       responseJson = responseToUser;
       // Optional: add contexts (https://dialogflow.com/docs/contexts)
       if (responseToUser.contextOut)
-          responseJson.contextOut = responseToUser.contextOut;
+          responseJson.outputContexts = responseToUser.contextOut;
       if (responseToUser.followupEvent)
           responseJson.followupEvent = responseToUser.followupEvent;
       responseJson.data = responseToUser.data;
