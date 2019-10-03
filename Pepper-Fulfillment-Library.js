@@ -557,7 +557,7 @@ class CarouselNoTitles extends BasicResponse {
             }
             this.contextOut.push({ 
                 name : contextObj.name, 
-                lifespanCount : contextObj.lifespan || 5,
+                lifespan : contextObj.lifespan || 5,
                 parameters : contextObj.parameters
             });
         }
@@ -572,7 +572,7 @@ class CarouselNoTitles extends BasicResponse {
       responseJson = responseToUser;
       // Optional: add contexts (https://dialogflow.com/docs/contexts)
       if (responseToUser.contextOut)
-          responseJson.outputContexts = responseToUser.contextOut;
+          responseJson.contextOut = responseToUser.contextOut;
       if (responseToUser.followupEvent)
           responseJson.followupEvent = responseToUser.followupEvent;
       responseJson.data = responseToUser.data;
