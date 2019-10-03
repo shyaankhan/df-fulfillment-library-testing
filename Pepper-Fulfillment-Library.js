@@ -545,19 +545,19 @@ class CarouselNoTitles extends BasicResponse {
             this.fulfillmentMessages.push(arguments[x]);
         }
     }
-    setContext(contextObj){
-        if (!this.contextOut) {
-            this.contextOut = [];
+    setContext(contextObj, session){
+        if (!this.outputContexts) {
+            this.outputContexts = [];
         }
         if (Array.isArray(contextObj)) {
-            this.contextOut = [...contextObj, ...this.contextOut];
+            this.outputContexts = [...contextObj, ...this.outputContexts];
         } else {
             if (typeof contextObj === "string") {
                 throw "Error: Context must be of type 'Object', not 'String'"
             }
             this.contextOut.push({ 
-                name : contextObj.name, 
-                lifespan : contextObj.lifespan || 5,
+                name : session+contextObj.name, 
+                lifespanCount : contextObj.lifespan || 5,
                 parameters : contextObj.parameters
             });
         }
@@ -571,8 +571,8 @@ class CarouselNoTitles extends BasicResponse {
       //responseJson.displayText = responseToUser.displayText || responseToUser.speech;
       responseJson = responseToUser;
       // Optional: add contexts (https://dialogflow.com/docs/contexts)
-      if (responseToUser.contextOut)
-          responseJson.contextOut = responseToUser.contextOut;
+      if (responseToUser.outputContexts)
+          responseJson.outputContexts = responseToUser.outputContexts;
       if (responseToUser.followupEvent)
           responseJson.followupEvent = responseToUser.followupEvent;
       responseJson.data = responseToUser.data;
