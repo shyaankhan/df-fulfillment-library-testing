@@ -546,16 +546,16 @@ class CarouselNoTitles extends BasicResponse {
         }
     }
     setContext(contextObj, session){
-        if (!this.outputContexts) {
-            this.outputContexts = [];
+        if (!this.contextOut) {
+            this.contextOut = [];
         }
         if (Array.isArray(contextObj)) {
-            this.outputContexts = [...contextObj, ...this.outputContexts];
+            this.contextOut = [...contextObj, ...this.contextOut];
         } else {
             if (typeof contextObj === "string") {
                 throw "Error: Context must be of type 'Object', not 'String'"
             }
-            this.outputContexts.push({ 
+            this.contextOut.push({ 
                 name : session+contextObj.name, 
                 lifespanCount : contextObj.lifespan || 5,
                 parameters : contextObj.parameters
@@ -573,9 +573,9 @@ class CarouselNoTitles extends BasicResponse {
       // Optional: add contexts (https://dialogflow.com/docs/contexts)
       if (responseToUser.outputContexts)
           responseJson.outputContexts = responseToUser.outputContexts;
-      if (responseToUser.followupEvent)
-          responseJson.followupEvent = responseToUser.followupEvent;
-      responseJson.data = responseToUser.data;
+      if (responseToUser.followupEventInput)
+          responseJson.followupEventInput = responseToUser.followupEventInput;
+      responseJson.payload = responseToUser.payload;
       console.log("Finished using library");
       console.log("RESPONSE TO DIALOGFLOW COMPLETE: ", JSON.stringify(responseJson));
       webhookResponse.json(responseJson); // Send response to Dialogflow
