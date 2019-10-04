@@ -572,7 +572,7 @@ class CarouselNoTitles extends BasicResponse {
       responseJson = responseToUser;
       // Optional: add contexts (https://dialogflow.com/docs/contexts)
       if (responseToUser.contextOut)
-          console.log("Setting to outputContexts: "+responseToUser.contextOut)
+          console.log("Setting to outputContexts: "+JSON.stringify(responseToUser.contextOut));
           responseJson.outputContexts = responseToUser.contextOut;
       if (responseToUser.followupEventInput)
           responseJson.followupEventInput = responseToUser.followupEventInput;
