@@ -556,7 +556,7 @@ class CarouselNoTitles extends BasicResponse {
                 throw "Error: Context must be of type 'Object', not 'String'"
             }
             this.contextOut.push({ 
-                name : session+"/"+contextObj.name, 
+                name : session+"/contexts/"+contextObj.name, 
                 lifespanCount : contextObj.lifespan || 5,
                 parameters : contextObj.parameters
             });
