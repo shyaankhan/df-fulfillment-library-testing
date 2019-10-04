@@ -546,16 +546,16 @@ class CarouselNoTitles extends BasicResponse {
         }
     }
     setContext(contextObj, session){
-        if (!this.contextOut) {
-            this.contextOut = [];
+        if (!this.outputContexts) {
+            this.outputContexts = [];
         }
         if (Array.isArray(contextObj)) {
-            this.contextOut = [...contextObj, ...this.contextOut];
+            this.outputContexts = [...contextObj, ...this.outputContexts];
         } else {
             if (typeof contextObj === "string") {
                 throw "Error: Context must be of type 'Object', not 'String'"
             }
-            this.contextOut.push({ 
+            this.outputContexts.push({ 
                 name : session+contextObj.name, 
                 lifespanCount : contextObj.lifespan || 5,
                 parameters : contextObj.parameters
