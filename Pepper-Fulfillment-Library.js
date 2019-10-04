@@ -567,7 +567,7 @@ class CarouselNoTitles extends BasicResponse {
       // If the response to the user includes rich responses or contexts send them to Dialogflow
       let responseJson = {};
       // If speech or displayText is defined, use it to respond (if one isn't defined use the other's value)
-      //responseJson.speech = responseToUser.speech || responseToUser.displayText || "";
+      responseJson.fulfillmentText = responseToUser.speech || responseToUser.displayText || "";
       //responseJson.displayText = responseToUser.displayText || responseToUser.speech;
       responseJson = responseToUser;
       // Optional: add contexts (https://dialogflow.com/docs/contexts)
